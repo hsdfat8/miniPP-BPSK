@@ -96,7 +96,6 @@ static const unsigned char BitsSetTable256[256] =
   float f;
   int job = 0;       //flag of any job were doing
   char lag_flag = 0; //block lag is locked (modems synchronization complete)
-  char cutframe_flag = 0;
   //char lock_flag=0; //phase of carrier (1333Hz, 6 samples per period) is locked
   //char sync_flag=0; //the difference of frequency transmitter-to-receiver sampling rate is locked
   //char current_lag=0;  //block lag (0-90, aligned to last bit position, the 6 samples for bit)
@@ -137,7 +136,6 @@ static const unsigned char BitsSetTable256[256] =
       //check for synck and averages BER
       lag_flag = !(!(buf[11] & 0x40)); //block lag is locked (synchronization compleet)
       //printf("lag flag = %d\n",lag_flag);
-      cutframe_flag = !(!(buf[11] & 0x01));
       //lock_flag=!(!(buf[11]&0x20)); //phaze of carrier (1333Hz, 6 samples per period) is locked
       //sync_flag=!(!(buf[11]&0x10)); //the differency of frequency transmitter-to-receiver sampling rate is locked
       //current_lag=buf[10]>>1;  //block lag (0-90, aligned to last bit position, the 6 samples for bit)
