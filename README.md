@@ -4,7 +4,11 @@
 * Cài trình biên dịch. Nếu chưa có thì download source trình biên dịch về: [Link](https://drive.google.com/file/d/1j4FnG02kGxLTWbm-wnNh0U_J4BB1c5cz/view?usp=sharing)
 * Giải nén và add đường dẫn thư mục *...\MinGW\bin* vào viến môi trường *PATH*. [Link hướng dẫn](https://quantrimang.com/them-bien-moi-truong-trong-windows-174960)
 * Đọc hiểu File Makefile.
-* Build bằng chương trình thực thi autoMake.bat hoặc vào Command Prompt chạy make (make trong thư mục melpe nữa).
+* Build bằng chương trình thực thi autoMake.bat hoặc vào Command Prompt chạy make (make trong các thư mục melpe/vad/crypto/fec/audio nữa).
+
+Sơ đồ hệ thống ![](https://github.com/hsdfat8/miniPP-BPSK/blob/main/image/Capture.PNG)
+
+Mục tiêu: đọc hiểu hàm Modulate() và Demodulate_8k() trong file modem/modem.c
 
 ## Hướng dẫn chạy
 
