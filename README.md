@@ -24,6 +24,7 @@ Các file dữ liệu được lưu dưới dạng binary được lưu ra file 
 | fileBuffrx|Dữ liệu bit nhận diện được bên receive|
 
 Cấu trúc buf trong 1 frame: buf[14] kiểu dữ liệu char
+
 *Bên tranmisster* 
 * buf[0]-> buf[10] lưu 81 bit dữ liệu (buf[10] chỉ dùng 1 bit LSB).
 * buf[11] dùng 1 bit LSB cho biết frame đó có phải frame VAD hay không.
