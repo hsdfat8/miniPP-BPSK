@@ -11,9 +11,8 @@ LIBS = -lm
 libfec.a: $(LOBJECTS)
 
 	ar cr libfec.a $(LOBJECTS)
-	-if test -s /bin/ranlib; then /bin/ranlib libfec.a; \
-      else if test -s /usr/bin/ranlib; then /usr/bin/ranlib libfec.a; \
-	else exit 0; fi; fi
+	ranlib libfec.a
+ 
 
 
 clean:

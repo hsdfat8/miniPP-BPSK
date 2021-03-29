@@ -6,9 +6,9 @@ MODE=NORM
 
 
 
-CFLAGS_NORM  = -g
+CFLAGS_NORM  = -I. -g
 CFLAGS_DEBUG = -g -DDEBUG
-CFLAGS = -Wall  -I. $(CFLAGS_$(MODE))
+CFLAGS = -Wall  $(CFLAGS_$(MODE))
 CFLAGSDEPEND = -MM $(CFLAGS)                    # for make depend
 
 TMP=$(MODE:NORM=)
@@ -26,45 +26,23 @@ LIBCRP_OBJS=$(LIBCRP_SRCS:.c=.o)
 
 ALL_SRCS=$(TESTER_SRCS)
 
-#
-default: libcrypto.a test
+#default: libcrypto.a test
+default: libcrypto.a
 
 
 test: $(TESTER_OBJS)
 	$(CC) -o test $(CFLAGS) $(TESTER_OBJS) $(LDFLAGS) -lm
 
 libcrypto.a: $(LIBCRP_OBJS)
-	bin/rm libcrypto.a
 	ar cr libcrypto.a $(LIBCRP_OBJS)
-	-if test -s /bin/ranlib; then /bin/ranlib libcrypto.a; \
-	else if test -s /usr/bin/ranlib; then /usr/bin/ranlib libcrypto.a; \
-	else exit 0; fi; fi
+	ranlib libcrypto.a
 
-#
-# how to compile a .c file into a .o
-#
-.SUFFIXES: .c .h .o
-.c.o:
-	$(CC) -c $(CFLAGS) $<
-
-#
-# make / clean dependency list
-#
-depend:
-	$(MAKE) -f $(MAKEFILENAME) $(MFLAGS) $(MAKEDEFS) clean_depend
-	$(CC) $(CFLAGSDEPEND) $(ALL_SRCS) >> $(MAKEFILENAME)
-
-clean_depend:
-	chmod u+w $(MAKEFILENAME)
-	(awk 'BEGIN{f=1}{if (f) print $0}/^\# DO NOT DELETE THIS LINE -- make depend depends on it./{f=0}'\
-	    < $(MAKEFILENAME) > .depend && \
-	mv .depend $(MAKEFILENAME)) || exit 1;
 
 #
 # remove object/executable files
 #
 clean:
-	rm -f *.o test test.exe libcrypto.a
+	del -f *.o test test.exe libcrypto.a
 
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.

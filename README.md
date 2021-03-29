@@ -4,7 +4,7 @@
 * Cài trình biên dịch. Nếu chưa có thì download source trình biên dịch về: [Link](https://drive.google.com/file/d/1j4FnG02kGxLTWbm-wnNh0U_J4BB1c5cz/view?usp=sharing)
 * Giải nén và add đường dẫn thư mục *...\MinGW\bin* vào viến môi trường *PATH*. [Link hướng dẫn](https://quantrimang.com/them-bien-moi-truong-trong-windows-174960)
 * Đọc hiểu File Makefile.
-* Build bằng chương trình thực thi autoMake.bat hoặc vào Command Prompt chạy make (make trong các thư mục melpe/vad/crypto/fec/audio nữa).
+* Build bằng chương trình thực thi autoMake.bat hoặc vào Command Prompt chạy make (make trong các thư mục melpe/vad/crypto/fec/audio nữa (ko make được thì báo lại lỗi)).
 
 Sơ đồ hệ thống ![](https://github.com/hsdfat8/miniPP-BPSK/blob/main/image/Capture.PNG)
 
@@ -13,7 +13,7 @@ Mục tiêu: đọc hiểu hàm Modulate() và Demodulate_8k() trong file modem/
 ## Hướng dẫn chạy
 
 * File data là dữ liệu các mẫu giọng nói với tần số lấy mẫu là 8kHz. 
-* Dùng hàm readBin('filename','short') để đọc dữ liệu. Dữ liệu mẫu: [Link](https://drive.google.com/drive/folders/1bHx8Py1nplFig0ZDf40omNmM-pI9yEFE?usp=sharing)
+* Dùng hàm readBin('filename','short') trong thư mục Matlab để đọc dữ liệu. Dữ liệu mẫu: [Link](https://drive.google.com/drive/folders/1bHx8Py1nplFig0ZDf40omNmM-pI9yEFE?usp=sharing)
 * Dùng lệnh `tx fileIn fileBPSK fileBufftx` để chạy code bên transmitter.
 * Dùng lệnh `rx fileBPSK fileOut fileBuffrx` để chạy code bên receiver.
 * Dùng matlab convert file bin về file âm thanh đuôi '.wav' để chấm PESQ để đo chất lượng. Dùng lệnh `PESQ +8000 fileIn.wav fileOut.wav`.
